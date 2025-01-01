@@ -12,16 +12,16 @@ Establish basic connectivity between the core router and PoPs (Lisbon, Porto, Ba
     enable
     configure terminal
     interface FastEthernet0/0
-     ip address 10.0.1.1 255.255.255.0
+     ip address 10.0.0.80 255.255.255.240
      no shutdown
     interface FastEthernet1/0
-     ip address 10.0.2.1 255.255.255.0
+     ip address 10.0.0.96 255.255.255.240
      no shutdown
     interface FastEthernet1/1
-     ip address 10.0.3.1 255.255.255.0
+     ip address 10.0.0.128 255.255.255.240
      no shutdown
     interface FastEthernet2/0
-     ip address 10.0.4.1 255.255.255.0
+     ip address 10.0.0.112 255.255.255.240
      no shutdown
     ```
     
@@ -29,10 +29,10 @@ Establish basic connectivity between the core router and PoPs (Lisbon, Porto, Ba
     
     ```plaintext
     router ospf 1
-     network 10.0.1.0 0.0.0.255 area 0
-     network 10.0.2.0 0.0.0.255 area 0
-     network 10.0.3.0 0.0.0.255 area 0
-     network 10.0.4.0 0.0.0.255 area 0
+     network 10.0.0.80 0.0.0.15 area 0
+     network 10.0.0.96 0.0.0.15 area 0
+     network 10.0.0.128 0.0.0.15 area 0
+     network 10.0.0.112 0.0.0.15 area 0
     ```
     
 
@@ -48,10 +48,13 @@ Each PoP router needs its respective interface configured and OSPF activated.
     enable
     configure terminal
     interface FastEthernet0/0
-     ip address 10.0.1.2 255.255.255.0
+     ip address 10.0.0.82 255.255.255.240
+     no shutdown
+    interface FastEthernet1/0
+     ip address 10.0.0.83 255.255.255.240
      no shutdown
     router ospf 1
-     network 10.0.1.0 0.0.0.255 area 0
+     network 10.0.0.80 0.0.0.15 area 0
     ```
     
 - **Porto Router:**
@@ -60,10 +63,13 @@ Each PoP router needs its respective interface configured and OSPF activated.
     enable
     configure terminal
     interface FastEthernet0/0
-     ip address 10.0.2.2 255.255.255.0
+     ip address 10.0.0.98 255.255.255.240
+     no shutdown
+    interface FastEthernet1/0
+     ip address 10.0.0.99 255.255.255.240
      no shutdown
     router ospf 1
-     network 10.0.2.0 0.0.0.255 area 0
+     network 10.0.0.96 0.0.0.15 area 0
     ```
     
 - **Barcelona Router:**
@@ -72,10 +78,13 @@ Each PoP router needs its respective interface configured and OSPF activated.
     enable
     configure terminal
     interface FastEthernet0/0
-     ip address 10.0.3.2 255.255.255.0
+     ip address 10.0.0.130 255.255.255.240
      no shutdown
+    interface FastEthernet1/0
+     ip address 10.0.0.131 255.255.255.240
+     no shutdown 
     router ospf 1
-     network 10.0.3.0 0.0.0.255 area 0
+     network 10.0.0.128 0.0.0.15 area 0
     ```
     
 - **Chicago Router:**
@@ -84,10 +93,13 @@ Each PoP router needs its respective interface configured and OSPF activated.
     enable
     configure terminal
     interface FastEthernet0/0
-     ip address 10.0.4.2 255.255.255.0
+     ip address 10.0.0.114 255.255.255.240
+     no shutdown
+    interface FastEthernet1/0
+     ip address 10.0.0.115 255.255.255.240
      no shutdown
     router ospf 1
-     network 10.0.4.0 0.0.0.255 area 0
+     network 10.0.0.112 0.0.0.15 area 0
     ```
     
 
