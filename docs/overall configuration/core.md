@@ -34,18 +34,18 @@ interface FastEthernet1/0
   mpls ip
   no shutdown
 !
-policy-map SME-QoS
-  class class-default
-    bandwidth 10000
-!
-interface FastEthernet0/0
-  service-policy output SME-QoS
-!
-interface FastEthernet1/0
-  service-policy output SME-QoS
-!
-interface FastEthernet1/1
-  service-policy output SME-QoS
-!
+# policy-map SME-QoS
+#   class class-default
+#     bandwidth 10000
+# !
+# interface FastEthernet0/0
+#   service-policy output SME-QoS
+# !
+# interface FastEthernet1/0
+#   service-policy output SME-QoS
+# !
+# interface FastEthernet1/1
+#   service-policy output SME-QoS
+# !
 ```
 

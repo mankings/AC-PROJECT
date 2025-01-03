@@ -24,6 +24,7 @@ interface FastEthernet0/0
 interface FastEthernet1/0
   ip vrf forwarding SME
   ip address 10.0.3.1 255.255.255.0
+  no shutdown
 !
 router bgp 21200 
   neighbor 10.7.0.6 remote-as 21200
@@ -41,11 +42,11 @@ address-family ipv4 vrf SME
   redistribute connected
   redistribute static
 !
-policy-map SME-QoS
-  class class-default
-    bandwidth 10000
-!
-interface FastEthernet0/0
-  service-policy output SME-QoS
-!
+# policy-map SME-QoS
+#   class class-default
+#     bandwidth 10000
+# !
+# interface FastEthernet0/0
+#   service-policy output SME-QoS
+# !
 ```

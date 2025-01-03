@@ -46,11 +46,11 @@ interface FastEthernet2/0.30
   ip address 10.30.0.1 255.255.255.0
   no shutdown
 !
-policy-map SME-QoS
-  class class-default
-    bandwidth 10000
-!
-interface FastEthernet0/0
-  service-policy output SME-QoS
-!
+# policy-map SME-QoS
+#   class class-default
+#     bandwidth 10000
+# !
+# interface FastEthernet0/0
+#   service-policy output SME-QoS
+# !
 ```
