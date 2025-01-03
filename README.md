@@ -1,4 +1,4 @@
-# AC-PROJECT Documentation
+# AC-PROJECT
 
 ## Table of Contents
 
