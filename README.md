@@ -19,101 +19,89 @@
 
 ## 1. Subnets
 
-**File Path:** `docs/9. Subnets.md`
+[Subnets](./docs/9.%20Subnets.md)
 
-This file contains the detailed subnet configuration used in the project.
 
 ---
 
 ## 2. Barcelona Configuration
 
-**File Path:** `docs/overall configuration/barcelona.md`
+[Barcelona Configuration](./docs/overall%20configuration/barcelona.md)
 
-This file outlines the configuration details for the Barcelona setup.
 
 ---
 
 ## 3. Chicago Configuration
 
-**File Path:** `docs/overall configuration/chicago.md`
+[Chicago Configuration](./docs/overall%20configuration/chicago.md)
 
-This file outlines the configuration details for the Chicago setup.
 
 ---
 
 ## 4. Core Configuration
 
-**File Path:** `docs/overall configuration/core.md`
+[Core Configuration](./docs/overall%20configuration/core.md)
 
-This file contains the configuration details for the core network.
 
 ---
 
 ## 5. Lisbon Configuration
 
-**File Path:** `docs/overall configuration/lisbon.md`
+[Lisbon Configuration](./docs/overall%20configuration/lisbon.md)
 
-This file contains the configuration details for the Lisbon setup.
 
 ---
 
 ## 6. Porto Configuration
 
-**File Path:** `docs/overall configuration/porto.md`
+[Porto Configuration](./docs/overall%20configuration/porto.md)
 
-This file outlines the configuration details for the Porto setup.
 
 ---
 
 ## 7. RB1 - SME Configuration
 
-**File Path:** `docs/overall configuration/rb1 - SME.md`
+[RB1 - SME Configuration](./docs/overall%20configuration/rb1%20-%20SME.md)
 
-This file contains the RB1 SME configuration details.
 
 ---
 
 ## 8. RC1 - VLAN Configuration
 
-**File Path:** `docs/overall configuration/rc1 - VLAN.md`
+[RC1 - VLAN Configuration](./docs/overall%20configuration/rc1%20-%20VLAN.md)
 
-This file contains the RC1 VLAN configuration details.
 
 ---
 
 ## 9. RL1 - VLAN Configuration
 
-**File Path:** `docs/overall configuration/rl1 - VLAN.md`
+[RL1 - VLAN Configuration](./docs/overall%20configuration/rl1%20-%20VLAN.md)
 
-This file contains the RL1 VLAN configuration details.
 
 ---
 
 ## 10. RL2 - SME Configuration
 
-**File Path:** `docs/overall configuration/rl2 - SME.md`
+[RL2 - SME Configuration](./docs/overall%20configuration/rl2%20-%20SME.md)
 
-This file contains the RL2 SME configuration details.
 
 ---
 
 ## 11. RP1 - VLAN Configuration
 
-**File Path:** `docs/overall configuration/rp1 - VLAN.md`
+[RP1 - VLAN Configuration](./docs/overall%20configuration/rp1%20-%20VLAN.md)
 
-This file contains the RP1 VLAN configuration details.
 
 ---
 
 ## 12. RP2 - SME Configuration
 
-**File Path:** `docs/overall configuration/rp2 - SME.md`
+[RP2 - SME Configuration](./docs/overall%20configuration/rp2%20-%20SME.md)
 
-This file contains the RP2 SME configuration details.
 
 ---
 
-### Notes
+# Authors
 
-- Ensure that all paths and file names are correctly maintained while accessing the files.
-- For further clarifications, contact the project maintainer.
+[João Monteiro](https://github.com/joaomonteir0), 102690 \
+[João Miguel Matos](https://github.com/mankings/), 103341 \
