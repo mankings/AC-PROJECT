@@ -42,7 +42,7 @@ A tabela contém os endereços IP, masks, e as conexões. Inclui também os ende
 
 ## 3. SME Configuration
 
-Configuração específica para interconectar clientes SME. Inclui detalhes de VRFs e políticas BGP.
+Configurações usadas para ligar os clientes SME.
 
 [RB1 - SME Configuration](./docs/overall%20configuration/rb1%20-%20SME.md)
 
@@ -57,7 +57,7 @@ Configuração específica para interconectar clientes SME. Inclui detalhes de V
 
 ## 4. VLAN Configuration
 
-Configuração das VLANs e das subinterfaces.
+Configurações das VLANs (em vyos) e das subinterfaces.
 
 [RC1 - VLAN Configuration](./docs/overall%20configuration/rc1%20-%20VLAN.md)
 
