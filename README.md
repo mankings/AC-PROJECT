@@ -17,91 +17,58 @@
 
 ---
 
-## 1. Subnets
+## 1. Ips
 
-[Subnets](./docs/9.%20Subnets.md)
+A tabela contém os endereços IP, masks, e as conexões. Inclui também os endereços de loopback para o OSPF.
 
-
----
-
-## 2. Barcelona Configuration
-
-[Barcelona Configuration](./docs/overall%20configuration/barcelona.md)
-
+[Tabelas](./docs/9.%20Subnets.md)
 
 ---
 
-## 3. Chicago Configuration
+## 2. Configurações dos Routers
 
-[Chicago Configuration](./docs/overall%20configuration/chicago.md)
+[Barcelona](./docs/overall%20configuration/barcelona.md)
 
+[Chicago](./docs/overall%20configuration/chicago.md)
 
----
-
-## 4. Core Configuration
-
-[Core Configuration](./docs/overall%20configuration/core.md)
+[Core](./docs/overall%20configuration/core.md)
 
 
----
+[Lisbon](./docs/overall%20configuration/lisbon.md)
 
-## 5. Lisbon Configuration
-
-[Lisbon Configuration](./docs/overall%20configuration/lisbon.md)
-
+[Porto](./docs/overall%20configuration/porto.md)
 
 ---
 
-## 6. Porto Configuration
+## 3. SME Configuration
 
-[Porto Configuration](./docs/overall%20configuration/porto.md)
-
-
----
-
-## 7. RB1 - SME Configuration
+Configuração específica para interconectar clientes SME. Inclui detalhes de VRFs e políticas BGP.
 
 [RB1 - SME Configuration](./docs/overall%20configuration/rb1%20-%20SME.md)
 
 
----
-
-## 8. RC1 - VLAN Configuration
-
-[RC1 - VLAN Configuration](./docs/overall%20configuration/rc1%20-%20VLAN.md)
-
-
----
-
-## 9. RL1 - VLAN Configuration
-
-[RL1 - VLAN Configuration](./docs/overall%20configuration/rl1%20-%20VLAN.md)
-
-
----
-
-## 10. RL2 - SME Configuration
-
 [RL2 - SME Configuration](./docs/overall%20configuration/rl2%20-%20SME.md)
-
-
----
-
-## 11. RP1 - VLAN Configuration
-
-[RP1 - VLAN Configuration](./docs/overall%20configuration/rp1%20-%20VLAN.md)
-
-
----
-
-## 12. RP2 - SME Configuration
 
 [RP2 - SME Configuration](./docs/overall%20configuration/rp2%20-%20SME.md)
 
 
+
 ---
+
+## 4. VLAN Configuration
+
+Configuração das VLANs e das subinterfaces.
+
+[RC1 - VLAN Configuration](./docs/overall%20configuration/rc1%20-%20VLAN.md)
+
+[RL1 - VLAN Configuration](./docs/overall%20configuration/rl1%20-%20VLAN.md)
+
+[RP1 - VLAN Configuration](./docs/overall%20configuration/rp1%20-%20VLAN.md)
+
+---
+
 
 # Authors
 
 [João Monteiro](https://github.com/joaomonteir0), 102690 \
-[João Miguel Matos](https://github.com/mankings/), 103341 \
+[João Miguel Matos](https://github.com/mankings/), 103341
