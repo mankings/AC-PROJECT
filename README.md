@@ -6,3 +6,7 @@
 
 - não há bgp nas vlans
 - diffserv para traffic diff nas vlans
+
+```
+  show bgp l2vpn etc etc
+```
