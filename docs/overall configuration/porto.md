@@ -4,7 +4,18 @@
 ```bash
 enable
 configure terminal
-mpls ip
+
+mpls label protocol ldp
+mpls traffic-eng tunnels
+
+class-map match-all Vl
+ match ip dscp af21 
+!
+policy-map OUT
+ class Vl
+  bandwidth 10000
+!
+
 interface Loopback0
   ip address 10.7.0.3 255.255.255.255
   ip ospf 1 area 0
@@ -14,18 +25,27 @@ interface FastEthernet0/0
   ip address 10.0.0.86 255.255.255.252
   ip ospf 1 area 0
   mpls ip
+  mpls traffic-eng tunnels
+  service-policy output OUT
+  ip rsvp bandwidth 100000 10000
   no shutdown
 !
-interface FastEthernet1/0
+interface FastEthernet1/0 
   ip address 10.0.0.98 255.255.255.252
   ip ospf 1 area 0
   mpls ip
+  mpls traffic-eng tunnels
+  service-policy output OUT
+  ip rsvp bandwidth 100000 10000
   no shutdown
 !
 interface FastEthernet1/1
   ip address 10.0.0.105 255.255.255.252
   ip ospf 1 area 0
   mpls ip
+  mpls traffic-eng tunnels
+  service-policy output OUT
+  ip rsvp bandwidth 100000 10000
   no shutdown
 !
 interface FastEthernet2/0
@@ -46,11 +66,11 @@ interface FastEthernet2/0.30
  ip address 10.30.0.2 255.255.255.0
  no shutdown
 !
-# policy-map SME-QoS
-#   class class-default
-#     bandwidth 10000
-# !
-# interface FastEthernet1/1
-#   service-policy output SME-QoS
-# !
+
+router ospf 1
+  mpls traffic-eng router-id Loopback0
+  mpls traffic-eng area 0
+!
+mpls ldp router-id Loopback0 force
+!
 ```
