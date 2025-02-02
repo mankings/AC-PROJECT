@@ -19,11 +19,32 @@ interface Loopback0
   ip ospf 1 area 0
   no shutdown
 !
+interface Tunnel0
+  ip unnumbered Loopback0
+  tunnel mode mpls traffic-eng
+  tunnel destination 10.7.0.6
+  tunnel mpls traffic-eng autoroute announce
+  tunnel mpls traffic-eng priority 7 7
+  tunnel mpls traffic-eng bandwidth 10000
+  tunnel mpls traffic-eng path-option 1 dynamic
+  no shutdown
+!
+interface Tunnel1
+  ip unnumbered Loopback0
+  tunnel mode mpls traffic-eng
+  tunnel destination 10.7.0.7
+  tunnel mpls traffic-eng autoroute announce
+  tunnel mpls traffic-eng priority 7 7
+  tunnel mpls traffic-eng bandwidth 10000
+  tunnel mpls traffic-eng path-option 1 dynamic
+  no shutdown
+!
 interface FastEthernet0/0
   ip address 10.0.0.110 255.255.255.252
   ip ospf 1 area 0
   mpls ip
   mpls traffic-eng tunnels
+  ip rsvp bandwidth 100000 10000
   no shutdown
 !
 interface FastEthernet1/0
