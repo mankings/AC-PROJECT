@@ -163,11 +163,21 @@ Client LA's infrastructure is built on a Layer 2 Ethernet private network to ens
 - VLAN 20: 10.20.0.0/24
 - VLAN 30: 10.30.0.0/24
 
+#### Vyos Router Configuration
+The Vyos is configured to handle VLANs using virtual interfaces. These interfaces are associated with the physical Ethernet adapter and tagged with their respective VLAN IDs.
+
+```bash
+configure
+set interfaces ethernet eth1 vif 10 address 10.10.0.6/24
+set interfaces ethernet eth1 vif 20 address 10.20.0.6/24
+set interfaces ethernet eth1 vif 30 address 10.30.0.6/24
+```
+
 ### Traffic Differentiation
 
 #### SNMP Monitoring Tool
 
-A SNMP monitoring tool was implemented to provide real-time monitoring of the network. The tool is hosted at the Core router using the LabCom VM, and consists of a Python script that queries SNMP data from all network devices.
+A SNMP monitoring tool was implemented to provide real-time monitoring of the network. The tool is hosted at the LabCom VM, and consists of a bash script that queries SNMP data from all cisco devices.
 
 #### SNMP Configuration on Routers
 Each router in the network was configured to support SNMP. The SNMP configuration includes:
