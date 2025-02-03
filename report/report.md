@@ -163,7 +163,29 @@ Client LA's infrastructure is built on a Layer 2 Ethernet private network to ens
 - VLAN 20: 10.20.0.0/24
 - VLAN 30: 10.30.0.0/24
 
-#### Vyos Router Configuration
+The Cisco routers were configured to handle VLAN-tagged traffic through the use of subinterfaces. Each subinterface corresponds to a VLAN.
+
+Example of router configuration:
+
+```bash
+interface FastEthernet2/0.10
+ encapsulation dot1Q 10
+ ip address 10.10.0.3 255.255.255.0
+ no shutdown
+!
+interface FastEthernet2/0.20
+ encapsulation dot1Q 20
+ ip address 10.20.0.3 255.255.255.0
+ no shutdown
+!
+interface FastEthernet2/0.30
+ encapsulation dot1Q 30
+ ip address 10.30.0.3 255.255.255.0
+ no shutdown
+ ```
+
+
+#### Vyos Configuration
 The Vyos is configured to handle VLANs using virtual interfaces. These interfaces are associated with the physical Ethernet adapter and tagged with their respective VLAN IDs.
 
 ```bash
@@ -172,6 +194,8 @@ set interfaces ethernet eth1 vif 10 address 10.10.0.6/24
 set interfaces ethernet eth1 vif 20 address 10.20.0.6/24
 set interfaces ethernet eth1 vif 30 address 10.30.0.6/24
 ```
+
+This setup ensures compatibility with the SNMP monitoring tool, explained bellow.
 
 ### Traffic Differentiation
 
