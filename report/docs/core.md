@@ -61,7 +61,6 @@ interface FastEthernet2/0
   ip rsvp bandwidth 100000 10000
   no shutdown
 !
-
 interface FastEthernet3/0
   ip address 10.0.0.121 255.255.255.252
   ip ospf 1 area 0
