@@ -1,9 +1,12 @@
-## RB1 Configuration
+## RL2 Configuration
 
 ### Interface Configuration
 ```bash
 enable
 configure terminal
+
+snmp-server community public RO
+snmp-server location Lisbon
 
 mpls label protocol ldp
 mpls traffic-eng tunnels
@@ -13,23 +16,12 @@ ip vrf SME
   route-target export 21200:1
   route-target import 21200:1
 !
-
 interface Loopback0
-  ip address 10.7.0.8 255.255.255.255
+  ip address 10.7.0.6 255.255.255.255
   ip ospf 1 area 0
   no shutdown
 !
 interface Tunnel0
-  ip unnumbered Loopback0
-  tunnel mode mpls traffic-eng
-  tunnel destination 10.7.0.6
-  tunnel mpls traffic-eng autoroute announce
-  tunnel mpls traffic-eng priority 7 7
-  tunnel mpls traffic-eng bandwidth 10000
-  tunnel mpls traffic-eng path-option 1 dynamic
-  no shutdown
-!
-interface Tunnel1
   ip unnumbered Loopback0
   tunnel mode mpls traffic-eng
   tunnel destination 10.7.0.7
@@ -39,8 +31,18 @@ interface Tunnel1
   tunnel mpls traffic-eng path-option 1 dynamic
   no shutdown
 !
+interface Tunnel1
+  ip unnumbered Loopback0
+  tunnel mode mpls traffic-eng
+  tunnel destination 10.7.0.8
+  tunnel mpls traffic-eng autoroute announce
+  tunnel mpls traffic-eng priority 7 7
+  tunnel mpls traffic-eng bandwidth 10000
+  tunnel mpls traffic-eng path-option 1 dynamic
+  no shutdown
+!
 interface FastEthernet0/0
-  ip address 10.0.0.110 255.255.255.252
+  ip address 10.0.0.102 255.255.255.252
   ip ospf 1 area 0
   mpls ip
   mpls traffic-eng tunnels
@@ -49,7 +51,7 @@ interface FastEthernet0/0
 !
 interface FastEthernet1/0
   ip vrf forwarding SME
-  ip address 10.0.3.1 255.255.255.0
+  ip address 10.0.2.1 255.255.255.0
   no shutdown
 !
 
@@ -59,18 +61,18 @@ router ospf 1
 !
 router bgp 21200
   bgp log-neighbor-changes
-  neighbor 10.7.0.6 remote-as 21200
-  neighbor 10.7.0.6 update-source Loopback0
   neighbor 10.7.0.7 remote-as 21200
   neighbor 10.7.0.7 update-source Loopback0
+  neighbor 10.7.0.8 remote-as 21200
+  neighbor 10.7.0.8 update-source Loopback0
   neighbor 10.7.0.4 remote-as 21200
   neighbor 10.7.0.4 update-source Loopback0
 !
 address-family vpnv4
-  neighbor 10.7.0.6 activate
-  neighbor 10.7.0.6 send-community both
   neighbor 10.7.0.7 activate
   neighbor 10.7.0.7 send-community both
+  neighbor 10.7.0.8 activate
+  neighbor 10.7.0.8 send-community both
   neighbor 10.7.0.4 activate
   neighbor 10.7.0.4 send-community both
 !

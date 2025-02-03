@@ -5,6 +5,9 @@
 enable
 configure terminal
 
+snmp-server community public RO
+snmp-server location Barcelona
+
 mpls label protocol ldp
 mpls traffic-eng tunnels
 
@@ -48,6 +51,17 @@ interface FastEthernet1/0
 interface FastEthernet1/1
   ip address 10.0.0.109 255.255.255.252
   ip ospf 1 area 0
+  mpls ip
+  mpls traffic-eng tunnels
+  service-policy output OUT
+  ip rsvp bandwidth 100000 10000
+  no shutdown
+!
+interface FastEthernet2/0
+  ip vrf forwarding SME
+  ip address 10.0.0.117 255.255.255.252
+  speed auto
+  duplex auto
   mpls ip
   mpls traffic-eng tunnels
   service-policy output OUT

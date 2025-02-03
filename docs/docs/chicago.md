@@ -5,6 +5,9 @@
 enable
 configure terminal
 
+snmp-server community public RO
+snmp-server location Chicago
+
 mpls label protocol ldp
 mpls traffic-eng tunnels
 

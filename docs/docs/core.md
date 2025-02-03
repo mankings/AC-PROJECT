@@ -5,6 +5,9 @@
 enable
 configure terminal
 
+snmp-server community public RO
+snmp-server location Core
+
 mpls label protocol ldp
 mpls traffic-eng tunnels
 
@@ -49,13 +52,19 @@ interface FastEthernet1/1
   ip rsvp bandwidth 100000 10000
   no shutdown
 !
-  interface FastEthernet2/0
+interface FastEthernet2/0
   ip address 10.0.0.89 255.255.255.252
   ip ospf 1 area 0
   mpls ip
   mpls traffic-eng tunnels
   service-policy output OUT
   ip rsvp bandwidth 100000 10000
+  no shutdown
+!
+
+interface FastEthernet3/0
+  ip address 10.0.0.121 255.255.255.252
+  ip ospf 1 area 0
   no shutdown
 !
 
