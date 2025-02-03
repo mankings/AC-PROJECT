@@ -40,7 +40,7 @@ The following table lists the basic assembly and core connectivity details:
 The loopback addresses for each router are as follows:
 
 Router    | Loopback0 Address
-----------|-----------------
+----------|------------------
 Core      | 10.7.0.1
 Lisbon    | 10.7.0.2
 Porto     | 10.7.0.3
@@ -162,13 +162,65 @@ Client LA's infrastructure is built on a Layer 2 Ethernet private network to ens
 - VLAN 20: 10.20.0.0/24
 - VLAN 30: 10.30.0.0/24
 
-### Traffic Differentiation
+The Cisco routers were configured to handle VLAN-tagged traffic through the use of subinterfaces. Each subinterface corresponds to a VLAN.
+
+Example of router configuration:
+
+```bash
+interface FastEthernet2/0.10
+ encapsulation dot1Q 10
+ ip address 10.10.0.3 255.255.255.0
+ no shutdown
+!
+interface FastEthernet2/0.20
+ encapsulation dot1Q 20
+ ip address 10.20.0.3 255.255.255.0
+ no shutdown
+!
+interface FastEthernet2/0.30
+ encapsulation dot1Q 30
+ ip address 10.30.0.3 255.255.255.0
+ no shutdown
+ ```
 
 
-## SNMP Monitoring Tool
+#### Vyos Configuration
+The Vyos is configured to handle VLANs using virtual interfaces. These interfaces are associated with the physical Ethernet adapter and tagged with their respective VLAN IDs.
 
-A SNMP monitoring tool was implemented to provide real-time monitoring of the network. The tool is hosted at the Core router using the LabCom VM, and consists of a Python script that queries SNMP data from all network devices.
+```bash
+configure
+set interfaces ethernet eth1 vif 10 address 10.10.0.6/24
+set interfaces ethernet eth1 vif 20 address 10.20.0.6/24
+set interfaces ethernet eth1 vif 30 address 10.30.0.6/24
+```
 
+This setup ensures compatibility with the SNMP monitoring tool, explained bellow.
+
+#### SNMP Monitoring Tool
+
+A SNMP monitoring tool was implemented to provide real-time monitoring of the network. The tool is hosted at the LabCom VM, and consists of a bash script that queries SNMP data from all cisco devices.
+
+#### SNMP Configuration on Routers
+Each router in the network was configured to support SNMP. The SNMP configuration includes:
+- Enabling SNMP services on the routers.
+- Setting a common SNMP community string ("public") to allow access.
+- Location configuration The snmp-server location command was used to identify the location of each router to help in device context during monitoring.
+
+Example of router configuration to enalbe SNMP:
+```bash
+snmp-server community public RO
+snmp-server location Lisbon
+```
+
+#### LabCom VM Integration
+
+The LabCom VM was configured with:
+
+- To the VM was assigned an IP address within the Core router subnet and the Core IP as the default gateway.
+- In the VM a SNMP monitoring tool (using bash) was implemented to provide real-time insights into the network's performance and resource utilization. This tool queries the routers using their loopback IPs.
+
+Example of the monitoring output:
+![Alt text](./report/img/SNMP.png)
 ---
 
 ## Full Configs
