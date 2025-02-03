@@ -165,7 +165,28 @@ Client LA's infrastructure is built on a Layer 2 Ethernet private network to ens
 
 ### Traffic Differentiation
 
-
-## SNMP Monitoring Tool
+#### SNMP Monitoring Tool
 
 A SNMP monitoring tool was implemented to provide real-time monitoring of the network. The tool is hosted at the Core router using the LabCom VM, and consists of a Python script that queries SNMP data from all network devices.
+
+#### SNMP Configuration on Routers
+Each router in the network was configured to support SNMP. The SNMP configuration includes:
+- Enabling SNMP services on the routers.
+- Setting a common SNMP community string ("public") to allow access.
+- Location configuration The snmp-server location command was used to identify the location of each router to help in device context during monitoring.
+
+Example of router configuration to enalbe SNMP:
+```bash
+snmp-server community public RO
+snmp-server location Lisbon
+```
+
+#### LabCom VM Integration
+
+The LabCom VM was configured with:
+
+- To the VM was assigned an IP address within the Core router subnet and the Core IP as the default gateway.
+- In the VM a SNMP monitoring tool (using bash) was implemented to provide real-time insights into the network's performance and resource utilization. This tool queries the routers using their loopback IPs.
+
+Example of the monitoring output:
+![Alt text](./img/SNMP.png)
