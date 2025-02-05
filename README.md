@@ -16,7 +16,7 @@ The interconnection utilizes the IPv4 network 10.0.0.0/24 with OSPF for dynamic 
 
 The following figure illustrates the developed network:
 
-![Network Topology](./img/arch.png)
+![Network Topology](./report/img/arch.png)
 
 ## Basic Assembly and Core Connectivity
 
